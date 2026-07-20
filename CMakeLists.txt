@@ -1,20 +1,15 @@
 cmake_minimum_required(VERSION 3.29)
-project(untitled)
+project(fbw-system)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(untitled main.cpp
-        left_aileron.h
-        right_aileron.h
-        aileron_position.h
-        stabiliser.h
-        vertical.h
-        horizontal.h
-        FBWSystem.h
-        FBWSystem.cpp
-        heading.h
-        heading.cpp
-        left_aileron.cpp
-        right_aileron.cpp     
-        cardinal_direction.cpp   
+add_executable(untitled
+        src/main.cpp
+        src/left_aileron.cpp
+        src/right_aileron.cpp
+        src/heading.cpp
+        src/FBWSystem.cpp
+        src/cardinal_direction.cpp
 )
+
+target_include_directories(fbw-system PRIVATE include)
