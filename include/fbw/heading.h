@@ -25,13 +25,13 @@ class heading{
       }else if(bearing > 20 && bearing <=90){
         cd_dir = cardinal_direction::NORTH_EAST;
       }else if(bearing > 90 && bearing <=180){
-        cd_dir = cardinal_direction::SOUTH_EAST
+        cd_dir = cardinal_direction::SOUTH_EAST;
       }else if(bearing == 180 && bearing < 210){
         cd_dir = cardinal_direction::SOUTH;
       }else if(bearing > 210 && bearing<=270){
-         cd_dir = cardinal_direction::SOUTH_WEST
+         cd_dir = cardinal_direction::SOUTH_WEST;
       }else if(bearing > 270 && bearing <= 359){
-         cd_dir = cardinal_direction::NORTH_WEST
+         cd_dir = cardinal_direction::NORTH_WEST;
       }
     }
 

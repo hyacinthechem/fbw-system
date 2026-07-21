@@ -3,7 +3,7 @@ project(fbw-system)
 
 set(CMAKE_CXX_STANDARD 20)
 
-add_executable(untitled
+add_executable(fbw-system
         src/main.cpp
         src/left_aileron.cpp
         src/right_aileron.cpp
@@ -12,4 +12,4 @@ add_executable(untitled
         src/cardinal_direction.cpp
 )
 
-target_include_directories(fbw-system PRIVATE include)
+target_include_directories(fbw-system PRIVATE include())

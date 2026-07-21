@@ -12,8 +12,14 @@
 
 
     
-    /* Empty constructor*/
-    FBWSystem::FBWSystem(){}
+    /* Default constructor implementation: this is important for initial aircraft model that has a base altitude of 10,000ft, heading of true north with its cardinal direction
+    and a 0 degree bank angle, enforcing level flight with ailerons. true air speed default is 410 knots*/
+    FBWSystem::FBWSystem(){
+       true_air_speed = 400;
+       bank_angle = 0;
+       hdg = 0;
+       cd_dir = cardinal_direction::NORTH;
+    }
 
     /* System banks the plane to the right by internally calling move_aileron.
        the aileron is moved based on its bank angle and position (enum)

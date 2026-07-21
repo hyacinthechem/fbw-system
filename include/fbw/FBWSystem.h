@@ -55,6 +55,12 @@ class FBWSystem {
     void update_altimeter(double true_air_speed, double angle_of_attack);
     /*Calculate the angle of attack based on elevator feedback*/ 
     double calculate_angle_of_attack(int feedback);
+
+    /*Get the bank angle*/
+    int get_bank_angle() const { return bank_angle;}
+
+    /*Get the true air speed */
+    double get_true_air_speed() const { return true_air_speed;}
   
     /*Get the heading */
     heading get_heading() const { return hdg;} 
@@ -67,7 +73,11 @@ class FBWSystem {
     ~FBWSystem(); //destructor for cockpit display
 
   private:
-    /*Get the current heading */ 
+    /* store the current bank angle */
+    int bank_angle; 
+    /* store the current true airspeed */
+    double true_air_speed; 
+    /* store the current heading */ 
     heading hdg;
     /* Convert to normal N, NE, S, SE, SW, NW String direction */
     cardinal_direction cd_dir;
