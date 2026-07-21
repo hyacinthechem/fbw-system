@@ -2,8 +2,8 @@
 // Created by Hyacinthe Chemasle on 06/01/2026.
 //
 
-#ifndef DISPLAY_H
-#define DISPLAY_H
+#ifndef FBWSYSTEM_H
+#define FBWSYSTEM_H
 
 #endif //DISPLAY_H
 #include "left_aileron.h"
@@ -22,13 +22,13 @@ class FBWSystem {
     /* Use of Aileron, both left and right aileron need to be queried to assess
       both down and up position to verify banking of right and left turns
     */
-    void bank_right(int bank_angle, left_aileron lft_alr, right_aileron rght_alr); //control to turn plane right
-    void bank_left(int bank_angle, left_aileron lft_alr, right_aileron rght_alr);  //control to turn plane left
+    void bank_right(int bank_angle, left_aileron lft_alr, right_aileron rght_alr, int indicated_air_speed); //control to turn plane right
+    void bank_left(int bank_angle, left_aileron lft_alr, right_aileron rght_alr, int indicated_air_speed);  //control to turn plane left
 
     /* Use of Stabiliser */
     /* Feedback for how big of a push down force and pull up force*/ 
-    void pull_up(int feedback);
-    void push_down(int feedback);
+    void pull_up(int feedback, double true_air_speed);
+    void push_down(int feedback, double true_air_speed);
 
     /* Use of flaps */
     void set_flaps(int pos);
@@ -50,6 +50,12 @@ class FBWSystem {
       }
        hdg.update_bearing(bearing);
     }
+
+    /* update altimeter to display correct altitude for elevator feedback*/ 
+    void update_altimeter(double true_air_speed, double angle_of_attack);
+    /*Calculate the angle of attack based on elevator feedback*/ 
+    double calculate_angle_of_attack(int feedback);
+  
     /*Get the heading */
     heading get_heading() const { return hdg;} 
     /* Update current direction after movement event */
@@ -65,4 +71,6 @@ class FBWSystem {
     heading hdg;
     /* Convert to normal N, NE, S, SE, SW, NW String direction */
     cardinal_direction cd_dir;
+    /* Altitude of an aircraft relative to a specific reference level*/
+    double altitude; 
 };

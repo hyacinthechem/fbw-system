@@ -19,7 +19,7 @@ class heading{
          std::cout << "Invalid Bearing";    
       }
 
-      this.bearing = bearing;
+      this->bearing = bearing;
       if(bearing == 0 && bearing < 20){
         cd_dir = cardinal_direction::NORTH;
       }else if(bearing > 20 && bearing <=90){
